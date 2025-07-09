@@ -1,10 +1,14 @@
+import Navbar from "../../components/Navbar";
 import * as Styled from "./CssComponents";
 
 function Home() {
   return (
     <div>
-      <Styled.Title>Welcome!</Styled.Title>;
-      <p>This is the main page of our application.</p>
+      <Navbar />
+      <Styled.Introduce>
+        Hi,
+        <br /> I’m Cauã Pereira, and Software Developer
+      </Styled.Introduce>
     </div>
   );
 }
