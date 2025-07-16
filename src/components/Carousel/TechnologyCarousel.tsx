@@ -1,11 +1,11 @@
-import { FaReact } from "react-icons/fa";
+import { FaReact, FaJava, FaAws } from "react-icons/fa";
 import { FaNode } from "react-icons/fa6";
-import { FaJava } from "react-icons/fa";
 import { DiDocker } from "react-icons/di";
-import { SiSequelize } from "react-icons/si";
-import { FaAws } from "react-icons/fa";
+import { SiMysql, SiSequelize } from "react-icons/si";
+import { DiPostgresql, DiMongodb } from "react-icons/di";
+import { MdNavigateNext } from "react-icons/md";
 import * as Styled from "./CssComponents";
-import { useState, type JSX } from "react";
+import { useEffect, useState, type JSX } from "react";
 
 type Technology = {
   name: string;
@@ -19,28 +19,63 @@ const listOfTechnologies = [
   { name: "Docker", icon: <DiDocker size={100} /> },
   { name: "Sequelize", icon: <SiSequelize size={100} /> },
   { name: "AWS", icon: <FaAws size={100} /> },
+  { name: "MySQL", icon: <SiMysql size={100} /> },
+  { name: "PostgreSQL", icon: <DiPostgresql size={100} /> },
+  { name: "MongoDB", icon: <DiMongodb size={100} /> },
+
+  { name: "React", icon: <FaReact size={100} /> },
+  { name: "Node.js", icon: <FaNode size={100} /> },
+  { name: "Java", icon: <FaJava size={100} /> },
+  { name: "Docker", icon: <DiDocker size={100} /> },
+  { name: "Sequelize", icon: <SiSequelize size={100} /> },
+  { name: "AWS", icon: <FaAws size={100} /> },
+  { name: "MySQL", icon: <SiMysql size={100} /> },
+  { name: "PostgreSQL", icon: <DiPostgresql size={100} /> },
+  { name: "MongoDB", icon: <DiMongodb size={100} /> },
 ];
 
 function TechnologyCarousel() {
-  const [technologies, setTechnologies] =
-    useState<Technology[]>(listOfTechnologies);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [animate, setAnimate] = useState(true);
+
+  const visibleCount = listOfTechnologies.length / 2;
 
   const scrollArray = () => {
-    const newList = [...technologies];
-    const firstElement = newList.shift();
-    if (firstElement) newList.push(firstElement);
-    setTechnologies(newList);
+    setAnimate(true);
+    setCurrentIndex((prev) => prev + 1);
   };
+
+  useEffect(() => {
+    const interval = setInterval(scrollArray, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (currentIndex === visibleCount) {
+      setTimeout(() => {
+        setAnimate(false);
+        setCurrentIndex(0);
+      }, 500);
+    }
+  }, [currentIndex, visibleCount]);
 
   return (
     <div>
-      <Styled.CarouselContainer>
-        {technologies.map((tech, index) => (
-          <div key={index}>{tech.icon}</div>
-        ))}
-      </Styled.CarouselContainer>
-      <button onClick={scrollArray}>Next list item</button>
+      <Styled.CarouselWrapper>
+        <Styled.CarouselContainer
+          animate={animate}
+          style={{ transform: `translateX(-${currentIndex * 140}px)` }}
+        >
+          {listOfTechnologies.map((tech, index) => (
+            <Styled.CarouselItem key={index}>{tech.icon}</Styled.CarouselItem>
+          ))}
+        </Styled.CarouselContainer>
+      </Styled.CarouselWrapper>
+      <Styled.CarouselNextButton onClick={scrollArray}>
+        <MdNavigateNext color="white" size={25} />
+      </Styled.CarouselNextButton>
     </div>
   );
 }
+
 export default TechnologyCarousel;
