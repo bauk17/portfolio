@@ -5,6 +5,9 @@ export const CarouselWrapper = styled.div`
   overflow: hidden;
   margin-left: 40px;
   margin-top: 70px;
+
+  &:hover {
+  }
 `;
 
 export const CarouselContainer = styled.div<{ animate: boolean }>`
