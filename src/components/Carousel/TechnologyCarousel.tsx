@@ -1,3 +1,6 @@
+import * as Styled from "./CssComponents";
+import { useEffect, useState, type JSX } from "react";
+import TechDescription from "./TechDescription";
 import { FaReact, FaJava, FaAws } from "react-icons/fa";
 import { TbBrandTypescript } from "react-icons/tb";
 import { FaNode } from "react-icons/fa6";
@@ -6,41 +9,117 @@ import { SiMysql, SiSequelize } from "react-icons/si";
 import { RiJavascriptLine } from "react-icons/ri";
 import { DiPostgresql, DiMongodb } from "react-icons/di";
 import { MdNavigateNext } from "react-icons/md";
-import * as Styled from "./CssComponents";
-import { useEffect, useState, type JSX } from "react";
-
-type Technology = {
-  name: string;
-  icon: JSX.Element;
-};
 
 const listOfTechnologies = [
-  { name: "React", icon: <FaReact size={100} /> },
-  { name: "Node.js", icon: <FaNode size={100} /> },
-  { name: "Java", icon: <FaJava size={100} /> },
-  { name: "Docker", icon: <DiDocker size={100} /> },
-  { name: "Sequelize", icon: <SiSequelize size={100} /> },
-  { name: "AWS", icon: <FaAws size={100} /> },
-  { name: "MySQL", icon: <SiMysql size={100} /> },
-  { name: "PostgreSQL", icon: <DiPostgresql size={100} /> },
+  {
+    name: "React",
+    icon: <FaReact size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "Node.js",
+    icon: <FaNode size={100} />,
+    description:
+      "A JavaScript library for building user interfacesSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
+  },
+  {
+    name: "Java",
+    icon: <FaJava size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "Docker",
+    icon: <DiDocker size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "Sequelize",
+    icon: <SiSequelize size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "AWS",
+    icon: <FaAws size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "MySQL",
+    icon: <SiMysql size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "PostgreSQL",
+    icon: <DiPostgresql size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
   { name: "MongoDB", icon: <DiMongodb size={100} /> },
-  { name: "JavaScript", icon: <RiJavascriptLine size={100} /> },
-  { name: "TypeScript", icon: <TbBrandTypescript size={100} /> },
+  {
+    name: "JavaScript",
+    icon: <RiJavascriptLine size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "TypeScript",
+    icon: <TbBrandTypescript size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
 
-  { name: "React", icon: <FaReact size={100} /> },
-  { name: "Node.js", icon: <FaNode size={100} /> },
-  { name: "Java", icon: <FaJava size={100} /> },
-  { name: "Docker", icon: <DiDocker size={100} /> },
-  { name: "Sequelize", icon: <SiSequelize size={100} /> },
-  { name: "AWS", icon: <FaAws size={100} /> },
-  { name: "MySQL", icon: <SiMysql size={100} /> },
-  { name: "PostgreSQL", icon: <DiPostgresql size={100} /> },
+  {
+    name: "React",
+    icon: <FaReact size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "Node.js",
+    icon: <FaNode size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "Java",
+    icon: <FaJava size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "Docker",
+    icon: <DiDocker size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "Sequelize",
+    icon: <SiSequelize size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "AWS",
+    icon: <FaAws size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "MySQL",
+    icon: <SiMysql size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "PostgreSQL",
+    icon: <DiPostgresql size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
   { name: "MongoDB", icon: <DiMongodb size={100} /> },
-  { name: "JavaScript", icon: <RiJavascriptLine size={100} /> },
-  { name: "TypeScript", icon: <TbBrandTypescript size={100} /> },
+  {
+    name: "JavaScript",
+    icon: <RiJavascriptLine size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
+  {
+    name: "TypeScript",
+    icon: <TbBrandTypescript size={100} />,
+    description: "A JavaScript library for building user interfaces",
+  },
 ];
 
 function TechnologyCarousel() {
+  const [selectedTech, setSelectedTech] = useState<number | null>(null);
+  const [techIndex, setTechIndex] = useState<number | false | void>(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animate, setAnimate] = useState(true);
   const [autoPlay, setAutoPLay] = useState(true);
@@ -69,6 +148,11 @@ function TechnologyCarousel() {
 
   return (
     <div>
+      {selectedTech === techIndex && (
+        <TechDescription
+          description={listOfTechnologies[techIndex].description}
+        />
+      )}
       <Styled.CarouselWrapper
         onMouseEnter={() => setAutoPLay(false)}
         onMouseLeave={() => setAutoPLay(true)}
@@ -78,7 +162,16 @@ function TechnologyCarousel() {
           style={{ transform: `translateX(-${currentIndex * 140}px)` }}
         >
           {listOfTechnologies.map((tech, index) => (
-            <Styled.CarouselItem key={index}>{tech.icon}</Styled.CarouselItem>
+            <div key={index}>
+              <Styled.CarouselItem
+                onClick={() => {
+                  setSelectedTech((prev) => (prev === index ? null : index));
+                  setTechIndex(index);
+                }}
+              >
+                {tech.icon}
+              </Styled.CarouselItem>
+            </div>
           ))}
         </Styled.CarouselContainer>
       </Styled.CarouselWrapper>
