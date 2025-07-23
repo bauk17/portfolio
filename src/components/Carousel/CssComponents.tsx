@@ -6,6 +6,7 @@ export const CarouselWrapper = styled.div`
   margin-left: 40px;
   margin-top: 70px;
 
+  position: relative;
   &:hover {
   }
 `;
@@ -21,8 +22,10 @@ export const CarouselContainer = styled.div<{ animate: boolean }>`
 export const CarouselItem = styled.div`
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   align-items: center;
   min-width: 100px;
+  position: relative;
 `;
 
 export const CarouselNextButton = styled.button`
