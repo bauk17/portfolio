@@ -164,10 +164,15 @@ function TechnologyCarousel() {
           {listOfTechnologies.map((tech, index) => (
             <div key={index}>
               <Styled.CarouselItem
-                onClick={() => {
+                onMouseEnter={() => {
                   setSelectedTech((prev) => (prev === index ? null : index));
                   setTechIndex(index);
                 }}
+                onMouseLeave={() => {
+                  setSelectedTech(null);
+                  setTechIndex(0);
+                }}
+                isSelected={selectedTech === index}
               >
                 {tech.icon}
               </Styled.CarouselItem>
