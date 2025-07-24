@@ -19,7 +19,9 @@ export const CarouselContainer = styled.div<{ animate: boolean }>`
     props.animate ? "transform 0.5s ease-in-out" : "none"};
 `;
 
-export const CarouselItem = styled.div`
+export const CarouselItem = styled.div<{ isSelected?: boolean }>`
+  opacity: ${(props) => (props.isSelected ? 0.5 : 1)};
+  transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   cursor: pointer;
