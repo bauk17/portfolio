@@ -8,7 +8,7 @@ export const TechDescriptionContainer = styled.div`
   width: 300px;
   height: 180px;
   border-radius: 7px;
-  background-color: #2a4072;
+  background-color: #141f38;
 `;
 
 export const TechDescriptionText = styled.p`
