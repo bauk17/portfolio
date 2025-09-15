@@ -1,10 +1,10 @@
+import { MdNavigateNext } from "react-icons/md";
 import Navbar from "../../components/Navbar";
 import * as Styled from "./CssComponents";
 
 function Home() {
   return (
     <div>
-      <Navbar />
       <Styled.Introduce>
         Welcome!
         <br /> I’m Cauã Pereira, a Software Developer
