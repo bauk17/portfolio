@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const NavbarContainer = styled.nav`
   display: flex;
-  margin-top: 40px;
+  margin-top: 70px;
 `;
 
 export const NavbarList = styled.ul`
@@ -13,8 +13,8 @@ export const NavbarList = styled.ul`
   margin-left: 30px;
 `;
 
-export const NavbarItem = styled.li`
-  color: white;
+export const NavbarItem = styled.li<{ $active?: boolean }>`
+  color: ${({ $active }) => ($active ? "#0039bc" : "#fff")};
   font-size: 34px;
   font-family: "Inter", sans-serif;
   margin: 38px;

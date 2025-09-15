@@ -1,14 +1,27 @@
 import { NavbarContainer, NavbarItem, NavbarList } from "./NavbarCss";
 
-function Navbar() {
+interface Props {
+  pages: string[];
+  activePage: string;
+  setActivePage: (page: string) => void;
+}
+
+function Navbar({ pages, activePage, setActivePage }: Props) {
   return (
     <div>
       <NavbarContainer>
         <NavbarList>
-          <NavbarItem>Home</NavbarItem>
-          <NavbarItem>About</NavbarItem>
-          <NavbarItem>Projects</NavbarItem>
-          <NavbarItem>Contact</NavbarItem>
+          {pages.map((item, index) => (
+            <NavbarItem
+              key={index}
+              onClick={() => {
+                setActivePage(item);
+              }}
+              $active={activePage === item}
+            >
+              {item}
+            </NavbarItem>
+          ))}
         </NavbarList>
       </NavbarContainer>
     </div>
