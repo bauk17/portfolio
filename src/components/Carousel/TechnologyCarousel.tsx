@@ -179,14 +179,14 @@ function TechnologyCarousel() {
             </div>
           ))}
         </Styled.CarouselContainer>
+        <Styled.CarouselNextButton
+          onClick={scrollArray}
+          onMouseEnter={() => setAutoPLay(false)}
+          onMouseLeave={() => setAutoPLay(true)}
+        >
+          <MdNavigateNext color="white" size={25} />
+        </Styled.CarouselNextButton>
       </Styled.CarouselWrapper>
-      <Styled.CarouselNextButton
-        onClick={scrollArray}
-        onMouseEnter={() => setAutoPLay(false)}
-        onMouseLeave={() => setAutoPLay(true)}
-      >
-        <MdNavigateNext color="white" size={25} />
-      </Styled.CarouselNextButton>
     </div>
   );
 }
