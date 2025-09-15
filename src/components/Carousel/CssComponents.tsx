@@ -13,6 +13,7 @@ export const CarouselWrapper = styled.div`
 
 export const CarouselContainer = styled.div<{ animate: boolean }>`
   display: flex;
+
   gap: 40px;
   padding: 18px;
   transition: ${(props) =>
@@ -32,17 +33,17 @@ export const CarouselItem = styled.div<{ isSelected?: boolean }>`
 
 export const CarouselNextButton = styled.button`
   position: absolute;
+
   width: 50px;
   height: 50px;
-
+  z-index: 10;
   border-radius: 50%;
   border: 1px solid #2a4072;
 
   color: white;
   background-color: #0f172a;
-  top: 670px;
-
-  left: 834px;
+  top: 35%;
+  right: -15px;
 
   &:hover {
     background-color: #121f3d;
