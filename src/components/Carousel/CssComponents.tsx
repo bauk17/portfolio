@@ -36,17 +36,16 @@ export const CarouselNextButton = styled.button`
 
   width: 50px;
   height: 50px;
-  z-index: 10;
+  z-index: 9999;
   border-radius: 50%;
   border: 1px solid #2a4072;
 
   color: white;
   background-color: #0f172a;
   top: 35%;
-  right: -15px;
+  right: -18px;
 
   &:hover {
-    background-color: #121f3d;
     cursor: pointer;
   }
 `;
