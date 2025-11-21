@@ -18,4 +18,10 @@ export const NavbarItem = styled.li<{ $active?: boolean }>`
   font-size: 34px;
   font-family: "Inter", sans-serif;
   margin: 38px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+    transition: 0.5s all ease;
+  }
 `;
