@@ -1,45 +1,31 @@
 import About from "../../pages/about/About";
-import * as MainContentStyled from "./MainContentCss";
 import Contact from "../../pages/contact/Contact";
 import Home from "../../pages/home/Home";
 import Projects from "../../pages/projects/Projects";
-import { useEffect, useState } from "react";
+import * as Styled from "./MainContentCss";
 
 type PageName = "Home" | "About" | "Projects" | "Contact";
 
-const PageComponentMap: Record<PageName, React.FC> = {
-  Home: Home,
-  About: About,
-  Projects: Projects,
-  Contact: Contact,
+const PageMap: Record<PageName, React.FC> = {
+  Home,
+  About,
+  Projects,
+  Contact,
 };
 
-interface MainContentProps {
+interface Props {
   activePage: string;
 }
 
-function MainContent({ activePage }: MainContentProps) {
-  const pages = ["Home", "About", "Projects", "Contact"];
-
-  const activeIndex = pages.indexOf(activePage);
-
-  const transformOffset = `translateX(-${activeIndex * 100}%)`;
+function MainContent({ activePage }: Props) {
+  const Component = PageMap[activePage as PageName];
 
   return (
-    <MainContentStyled.default.ContentWrapper>
-      <MainContentStyled.default.ContentTrack transformOffset={transformOffset}>
-        {pages.map((pageName) => {
-          const Component = PageComponentMap[pageName as PageName];
-          if (!Component) return null;
-
-          return (
-            <MainContentStyled.default.PageContent key={pageName}>
-              <Component />
-            </MainContentStyled.default.PageContent>
-          );
-        })}
-      </MainContentStyled.default.ContentTrack>
-    </MainContentStyled.default.ContentWrapper>
+    <Styled.ContentWrapper>
+      <Styled.PageContainer key={activePage}>
+        <Component />
+      </Styled.PageContainer>
+    </Styled.ContentWrapper>
   );
 }
 
