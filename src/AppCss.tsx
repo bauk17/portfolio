@@ -12,7 +12,7 @@ export const NextPageButton = styled.button`
   background-color: #0f172a;
 
   top: 390px;
-  right: 100px;
+  right: 900px;
 
   &:hover {
     background-color: #121f3d;
