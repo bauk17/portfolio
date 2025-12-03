@@ -4,7 +4,6 @@ export const CarouselWrapper = styled.div`
   width: 830px;
   overflow: hidden;
   margin-left: 40px;
-  margin-top: 70px;
 
   position: relative;
   &:hover {

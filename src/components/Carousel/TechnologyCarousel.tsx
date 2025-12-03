@@ -154,8 +154,10 @@ function TechnologyCarousel() {
         />
       )}
       <Styled.CarouselWrapper
+      /*
         onMouseEnter={() => setAutoPLay(false)}
         onMouseLeave={() => setAutoPLay(true)}
+        */
       >
         <Styled.CarouselContainer
           animate={animate}
@@ -164,6 +166,7 @@ function TechnologyCarousel() {
           {listOfTechnologies.map((tech, index) => (
             <div key={index}>
               <Styled.CarouselItem
+              /*
                 onMouseEnter={() => {
                   setSelectedTech((prev) => (prev === index ? null : index));
                   setTechIndex(index);
@@ -173,19 +176,20 @@ function TechnologyCarousel() {
                   setTechIndex(0);
                 }}
                 isSelected={selectedTech === index}
+                */
               >
                 {tech.icon}
               </Styled.CarouselItem>
             </div>
           ))}
         </Styled.CarouselContainer>
-        <Styled.CarouselNextButton
+        {/*<Styled.CarouselNextButton
           onClick={scrollArray}
           onMouseEnter={() => setAutoPLay(false)}
           onMouseLeave={() => setAutoPLay(true)}
         >
           <MdNavigateNext color="white" size={25} />
-        </Styled.CarouselNextButton>
+        </Styled.CarouselNextButton>*/}
       </Styled.CarouselWrapper>
     </div>
   );
