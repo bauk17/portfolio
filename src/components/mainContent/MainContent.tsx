@@ -1,16 +1,18 @@
-import About from "../../pages/about/About";
+import Timeline from "../../pages/about/Timeline";
+import About from "../../pages/aboutme/About";
 import Contact from "../../pages/contact/Contact";
 import Home from "../../pages/home/Home";
 import Projects from "../../pages/projects/Projects";
 import * as Styled from "./MainContentCss";
 
-type PageName = "Home" | "About" | "Projects" | "Contact";
+type PageName = "Home" | "Timeline" | "Projects" | "Contact" | "About";
 
 const PageMap: Record<PageName, React.FC> = {
   Home,
-  About,
+  Timeline,
   Projects,
   Contact,
+  About,
 };
 
 interface Props {
