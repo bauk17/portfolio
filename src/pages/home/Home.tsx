@@ -1,10 +1,8 @@
-import { MdNavigateNext } from "react-icons/md";
-import Navbar from "../../components/Navbar";
 import * as Styled from "./CssComponents";
 
 function Home() {
   return (
-    <div>
+    <Styled.HomeWrapper>
       <Styled.Introduce>
         Welcome!
         <br /> I’m Cauã Pereira, a Software Developer
@@ -18,7 +16,7 @@ function Home() {
         <Styled.Button>See projects</Styled.Button>
         <Styled.Button>Contact me</Styled.Button>
       </Styled.ButtonSection>
-    </div>
+    </Styled.HomeWrapper>
   );
 }
 

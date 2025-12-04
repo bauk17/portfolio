@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const HomeWrapper = styled.div`
+  min-height: 400px;
+`;
+
 export const Title = styled.h1`
   font-size: 2em;
   color: #cecece;
@@ -11,7 +15,7 @@ export const Introduce = styled.p`
   font-family: "Inter", sans-serif;
   font-weight: 100;
   margin-left: 68px;
-  margin-top: 80px;
+  margin-top: 60px;
 `;
 
 export const ButtonSection = styled.div`
