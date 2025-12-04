@@ -1,6 +1,10 @@
 import * as Styled from "./CssComponents";
 
-function Home() {
+interface HomeProps {
+  setActivePage: (page: string) => void;
+}
+
+function Home({ setActivePage }: HomeProps) {
   return (
     <Styled.HomeWrapper>
       <Styled.Introduce>
@@ -13,8 +17,20 @@ function Home() {
         get a sense of who I am as a professional.
       </Styled.Presentation>
       <Styled.ButtonSection>
-        <Styled.Button>See projects</Styled.Button>
-        <Styled.Button>Contact me</Styled.Button>
+        <Styled.Button
+          onClick={() => {
+            setActivePage("Projects");
+          }}
+        >
+          See projects
+        </Styled.Button>
+        <Styled.Button
+          onClick={() => {
+            setActivePage("Contact");
+          }}
+        >
+          Contact me
+        </Styled.Button>
       </Styled.ButtonSection>
     </Styled.HomeWrapper>
   );
