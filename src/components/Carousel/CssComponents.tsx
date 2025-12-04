@@ -12,7 +12,6 @@ export const CarouselWrapper = styled.div`
 
 export const CarouselContainer = styled.div<{ animate: boolean }>`
   display: flex;
-
   gap: 40px;
   padding: 18px;
   transition: ${(props) =>

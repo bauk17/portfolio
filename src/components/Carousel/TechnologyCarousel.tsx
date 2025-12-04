@@ -8,7 +8,6 @@ import { DiDocker } from "react-icons/di";
 import { SiMysql, SiSequelize } from "react-icons/si";
 import { RiJavascriptLine } from "react-icons/ri";
 import { DiPostgresql, DiMongodb } from "react-icons/di";
-import { MdNavigateNext } from "react-icons/md";
 
 const listOfTechnologies = [
   {
