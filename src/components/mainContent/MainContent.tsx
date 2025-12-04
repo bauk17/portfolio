@@ -7,7 +7,7 @@ import * as Styled from "./MainContentCss";
 
 type PageName = "Home" | "Timeline" | "Projects" | "Contact" | "About";
 
-const PageMap: Record<PageName, React.FC> = {
+const PageMap: Record<PageName, React.ComponentType<any>> = {
   Home,
   Timeline,
   Projects,
@@ -17,15 +17,21 @@ const PageMap: Record<PageName, React.FC> = {
 
 interface Props {
   activePage: string;
+
+  setActivePage: (page: string) => void;
 }
 
-function MainContent({ activePage }: Props) {
+function MainContent({ activePage, setActivePage }: Props) {
   const Component = PageMap[activePage as PageName];
 
   return (
     <Styled.ContentWrapper>
       <Styled.PageContainer key={activePage}>
-        <Component />
+        {Component === Home ? (
+          <Home setActivePage={setActivePage} />
+        ) : (
+          <Component />
+        )}
       </Styled.PageContainer>
     </Styled.ContentWrapper>
   );
