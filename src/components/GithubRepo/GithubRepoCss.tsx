@@ -1,18 +1,16 @@
 import styled from "styled-components";
 
 export const GithubRepoWrapper = styled.div`
-  margin-left: 68px;
-  margin-top: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 100px 100px;
-  gap: 20px;
-  width: 1200px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
 `;
 
 export const GithubRepoItem = styled.div`
-  background-color: #0f172a;
-  border: 1.5px solid #0039bc;
-  border-radius: 7px;
+  background-color: #10224d;
+  width: 270px;
+  height: 290px;
+  border-radius: 8px;
   font-family: "Inter", sans-serif;
 `;
