@@ -16,7 +16,9 @@ function App() {
         setActivePage={(page) => setActiveIndex(pages.indexOf(page))}
       />
       <MainContent activePage={pages[activeIndex]} />
-      <TechnologyCarousel />
+
+      {pages[activeIndex] == "Contact" ? false : <TechnologyCarousel />}
+
       {/*<Styled.NextPageButton
         onClick={() => {
           setActiveIndex((prev) => (prev + 1) % pages.length);
