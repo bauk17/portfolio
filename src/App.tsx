@@ -15,17 +15,15 @@ function App() {
         activePage={pages[activeIndex]}
         setActivePage={(page) => setActiveIndex(pages.indexOf(page))}
       />
-      <MainContent activePage={pages[activeIndex]} />
+      <MainContent
+        activePage={pages[activeIndex]}
+        setActivePage={(page) => setActiveIndex(pages.indexOf(page))}
+      />
 
-      {pages[activeIndex] == "Contact" ? false : <TechnologyCarousel />}
-
-      {/*<Styled.NextPageButton
-        onClick={() => {
-          setActiveIndex((prev) => (prev + 1) % pages.length);
-        }}
-      >
-        <MdNavigateNext color="white" size={25} />
-      </Styled.NextPageButton>*/}
+      {pages[activeIndex] === "Contact" ||
+      pages[activeIndex] === "About" ? null : (
+        <TechnologyCarousel />
+      )}
     </div>
   );
 }
