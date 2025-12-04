@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as Styled from "./AboutCss";
+import * as Styled from "./TimelineCss";
 import FirstProject from "./timeline/FirstProject";
 import Basics from "./timeline/Basics";
 import StackChoose from "./timeline/StackChoose";
@@ -34,9 +34,7 @@ function Timeline() {
               }}
               active={index <= timelineIndex}
               isDone={timelineIndex == timelines.length - 1}
-            >
-              .
-            </Styled.TimelineButton>
+            />
           </Styled.TimeLineContainer>
         ))}
         <Styled.TimeLineProgressBar
