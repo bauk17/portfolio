@@ -8,6 +8,12 @@ export const CarouselWrapper = styled.div`
   position: relative;
   &:hover {
   }
+
+  @media (max-width: 500px) {
+    margin-left: 20px;
+    overflow: hidden;
+    width: 375px;
+  }
 `;
 
 export const CarouselContainer = styled.div<{ animate: boolean }>`
@@ -16,6 +22,10 @@ export const CarouselContainer = styled.div<{ animate: boolean }>`
   padding: 18px;
   transition: ${(props) =>
     props.animate ? "transform 0.5s ease-in-out" : "none"};
+
+  @media (max-width: 500px) {
+    gap: 40px;
+  }
 `;
 
 export const CarouselItem = styled.div<{ isSelected?: boolean }>`
@@ -27,6 +37,9 @@ export const CarouselItem = styled.div<{ isSelected?: boolean }>`
   align-items: center;
   min-width: 100px;
   position: relative;
+
+  @media (max-width: 500px) {
+  }
 `;
 
 export const CarouselNextButton = styled.button`
