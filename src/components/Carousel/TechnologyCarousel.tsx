@@ -152,33 +152,14 @@ function TechnologyCarousel() {
           description={listOfTechnologies[techIndex].description}
         />
       )}
-      <Styled.CarouselWrapper
-      /*
-        onMouseEnter={() => setAutoPLay(false)}
-        onMouseLeave={() => setAutoPLay(true)}
-        */
-      >
+      <Styled.CarouselWrapper>
         <Styled.CarouselContainer
           animate={animate}
           style={{ transform: `translateX(-${currentIndex * 140}px)` }}
         >
           {listOfTechnologies.map((tech, index) => (
             <div key={index}>
-              <Styled.CarouselItem
-              /*
-                onMouseEnter={() => {
-                  setSelectedTech((prev) => (prev === index ? null : index));
-                  setTechIndex(index);
-                }}
-                onMouseLeave={() => {
-                  setSelectedTech(null);
-                  setTechIndex(0);
-                }}
-                isSelected={selectedTech === index}
-                */
-              >
-                {tech.icon}
-              </Styled.CarouselItem>
+              <Styled.CarouselItem>{tech.icon}</Styled.CarouselItem>
             </div>
           ))}
         </Styled.CarouselContainer>
