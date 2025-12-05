@@ -8,23 +8,21 @@ interface Props {
 
 function Navbar({ pages, activePage, setActivePage }: Props) {
   return (
-    <div>
-      <NavbarContainer>
-        <NavbarList>
-          {pages.map((item, index) => (
-            <NavbarItem
-              key={index}
-              onClick={() => {
-                setActivePage(item);
-              }}
-              $active={activePage === item}
-            >
-              {item}
-            </NavbarItem>
-          ))}
-        </NavbarList>
-      </NavbarContainer>
-    </div>
+    <NavbarContainer>
+      <NavbarList>
+        {pages.map((item, index) => (
+          <NavbarItem
+            key={index}
+            onClick={() => {
+              setActivePage(item);
+            }}
+            $active={activePage === item}
+          >
+            {item}
+          </NavbarItem>
+        ))}
+      </NavbarList>
+    </NavbarContainer>
   );
 }
 
