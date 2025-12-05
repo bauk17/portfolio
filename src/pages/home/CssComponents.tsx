@@ -16,6 +16,14 @@ export const Introduce = styled.p`
   font-weight: 100;
   margin-left: 68px;
   margin-top: 60px;
+
+  @media (max-width: 500px) {
+    font-size: 32px;
+    margin-top: 50px;
+    margin-left: 34px;
+    font-weight: 200;
+    text-align: center;
+  }
 `;
 
 export const ButtonSection = styled.div`
@@ -23,6 +31,15 @@ export const ButtonSection = styled.div`
   margin-left: 48px;
   margin-top: 70px;
   display: flex;
+
+  @media (max-width: 500px) {
+    margin-top: 50px;
+    width: 100%;
+    margin-left: 34px;
+
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const Button = styled.button`
@@ -48,6 +65,14 @@ export const Button = styled.button`
       background-color: #002a8c;
     }
   }
+
+  @media (max-width: 500px) {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 140px;
+    font-size: 20px;
+    height: 55px;
+  }
 `;
 
 export const Presentation = styled.p`
@@ -57,6 +82,12 @@ export const Presentation = styled.p`
   font-weight: 100;
   margin-left: 68px;
   margin-top: 15px;
+
+  @media (max-width: 500px) {
+    font-size: 19px;
+    margin-left: 62px;
+    text-align: center;
+  }
 `;
 
 export const NextPageButton = styled.button`
